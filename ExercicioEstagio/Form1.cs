@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.OleDb;
+using ExercicioEstagio.Data;
 
 namespace ExercicioEstagio
 {
     public partial class Form1 : Form
     {
+        private ConnectionService connectionService = new ConnectionService();
         public Form1()
         {
             InitializeComponent();
@@ -22,23 +24,21 @@ namespace ExercicioEstagio
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            OleDbConnection connection = new OleDbConnection();
-
-            string pathDB = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"auebd.mdb");
-            pathDB = System.IO.Path.GetFullPath(pathDB);
-
-            connection.ConnectionString = $@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source={pathDB};";
-
-            try
+  
+            using (var conn = connectionService.GetConnection() )
             {
-                connection.Open();
-                checkConnection.Text = "Conexão aberta com sucesso!";
+                try
+                {
+                    conn.Open();
+                    checkConnection.Text = "Conexão aberta com sucesso!";
+                }
+                catch (Exception ex)
+                {
+                    checkConnection.Text = "Erro ao abrir a conexão: " + ex.Message;
+                    return;
+                }
             }
-            catch (Exception ex)
-            {
-                checkConnection.Text = "Erro ao abrir a conexão: " + ex.Message;
-                return;
-            }
+            
 
         }
 
