@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.OleDb;
 using ExercicioEstagio.Data;
+using ExercicioEstagio.Forms;
 
 namespace ExercicioEstagio
 {
@@ -24,21 +25,15 @@ namespace ExercicioEstagio
         private void ListContactsForm_Load(object sender, EventArgs e)
         {
            
-            //using (var conn = connectionService.GetConnection() )
-            //{
-            //    try
-            //    {
-            //        conn.Open();
-            //        checkConnection.Text = "Conexão aberta com sucesso!";
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        checkConnection.Text = "Erro ao abrir a conexão: " + ex.Message;
-            //        return;
-            //    }
-            //}
+            MessageBox.Show("Carregando contatos...");
 
 
+        }
+
+        private void btn_insert_Click(object sender, EventArgs e)
+        {
+            InsertContactForm modal = new InsertContactForm(this);
+            modal.ShowDialog();
         }
     }
 }
