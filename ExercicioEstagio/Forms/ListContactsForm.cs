@@ -77,5 +77,30 @@ namespace ExercicioEstagio
             EditContactForm modal = new EditContactForm(this, selectedContact, contactService);
             modal.ShowDialog();
         }
+
+        private async void btn_delete_Click(object sender, EventArgs e)
+        {
+            if (selectedContact == null)
+            {
+                MessageBox.Show("Selecione um contato da tabela para excluir.");
+                return;
+            }
+
+            DialogResult result = MessageBox.Show($"Tem certeza que deseja excluir o(a) contato {selectedContact.Name}?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    await contactService.DeleteContactAsync(selectedContact.Id);
+                    MessageBox.Show("Contato excluído com sucesso!");
+                    await LoadContacts();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao excluir contato: " + ex.Message);
+                }
+            }
+        }
     }
 }

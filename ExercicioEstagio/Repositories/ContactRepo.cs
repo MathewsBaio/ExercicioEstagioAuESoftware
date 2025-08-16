@@ -75,7 +75,15 @@ namespace ExercicioEstagio.Repositories
         {
             using (var connection = conn.GetConnection())
             {
+                await connection.OpenAsync();
 
+                using (var command = new OleDbCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "DELETE FROM Contatos WHERE CodContato = ?";
+                    command.Parameters.AddWithValue("CodContato", id);
+                    await command.ExecuteNonQueryAsync();
+                }
             }
         }
 

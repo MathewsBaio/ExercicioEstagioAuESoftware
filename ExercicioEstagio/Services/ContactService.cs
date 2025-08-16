@@ -22,6 +22,11 @@ namespace ExercicioEstagio.Services
             await repo.UpdateContactAsync(newContact);
         }
 
+        public async Task DeleteContactAsync(int id)
+        {
+            await repo.DeleteContactAsync(id);
+        }
+
         public async Task<List<Contact>> GetAllContactsAsync()
         {
             return await repo.GetAllContactsAsync();
