@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ExercicioEstagio.Models;
+using ExercicioEstagio.Services;
 
 namespace ExercicioEstagio.Forms
 {
@@ -15,11 +16,15 @@ namespace ExercicioEstagio.Forms
     public partial class EditContactForm : Form
     {
         private Contact contact;
+        private ListContactsForm parent;
+        private ContactService contactService;
 
-        public EditContactForm(Contact contact)
+        public EditContactForm(ListContactsForm parent, Contact contact, ContactService contactService)
         {
             InitializeComponent();
+            this.parent = parent;
             this.contact = contact;
+            this.contactService = contactService;
         }
 
 

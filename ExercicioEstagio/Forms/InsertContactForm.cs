@@ -16,11 +16,14 @@ namespace ExercicioEstagio.Forms
     {
         private Contact contact;
         private ListContactsForm parent;
-        public InsertContactForm(ListContactsForm parent)
+        private ContactService contactService;
+
+        public InsertContactForm(ListContactsForm parent, ContactService contactService)
         {
             InitializeComponent();
             contact = new Contact();
             this.parent = parent;
+            this.contactService = contactService;
         }
 
         private void InsertContactForm_Load(object sender, EventArgs e)
@@ -36,14 +39,12 @@ namespace ExercicioEstagio.Forms
 
         private async void btn_confirm_Click(object sender, EventArgs e)
         {
-            ContactService contactService = new ContactService();
-
             try
             {
                 await contactService.InsertContactAsync(contact);
                 MessageBox.Show("Contato inserido com sucesso!");
                 this.Close();
-                // parent.ReloadContacts();
+                parent.LoadContacts();
                 this.Dispose(); 
             }
             catch (Exception ex)

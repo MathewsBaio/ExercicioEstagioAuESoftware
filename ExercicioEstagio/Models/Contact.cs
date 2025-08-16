@@ -9,6 +9,7 @@ namespace ExercicioEstagio.Models
     public class Contact
     {
         public int Id { get; set; }
+        public DateTime RegisterDate { get; set; }
         public string Name { get; set; }
         public string City { get; set; }
         public GenderEnum Gender { get; set; }

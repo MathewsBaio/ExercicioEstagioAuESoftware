@@ -33,10 +33,11 @@
             this.btn_edit = new System.Windows.Forms.Button();
             this.btn_insert = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.list_contacts = new System.Windows.Forms.ListView();
             this.txt_report = new System.Windows.Forms.TextBox();
             this.btn_report = new System.Windows.Forms.Button();
+            this.dataGrid_contacts = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_contacts)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -55,7 +56,7 @@
             // btn_delete
             // 
             this.btn_delete.Location = new System.Drawing.Point(16, 434);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(4);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(131, 92);
             this.btn_delete.TabIndex = 2;
@@ -65,17 +66,18 @@
             // btn_edit
             // 
             this.btn_edit.Location = new System.Drawing.Point(16, 335);
-            this.btn_edit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_edit.Margin = new System.Windows.Forms.Padding(4);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(131, 92);
             this.btn_edit.TabIndex = 1;
             this.btn_edit.Text = "Editar";
             this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // btn_insert
             // 
             this.btn_insert.Location = new System.Drawing.Point(16, 235);
-            this.btn_insert.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_insert.Margin = new System.Windows.Forms.Padding(4);
             this.btn_insert.Name = "btn_insert";
             this.btn_insert.Size = new System.Drawing.Size(131, 92);
             this.btn_insert.TabIndex = 0;
@@ -94,20 +96,10 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Lista de Contatos";
             // 
-            // list_contacts
-            // 
-            this.list_contacts.HideSelection = false;
-            this.list_contacts.Location = new System.Drawing.Point(171, 73);
-            this.list_contacts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.list_contacts.Name = "list_contacts";
-            this.list_contacts.Size = new System.Drawing.Size(925, 254);
-            this.list_contacts.TabIndex = 3;
-            this.list_contacts.UseCompatibleStateImageBehavior = false;
-            // 
             // txt_report
             // 
             this.txt_report.Location = new System.Drawing.Point(171, 434);
-            this.txt_report.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_report.Margin = new System.Windows.Forms.Padding(4);
             this.txt_report.Name = "txt_report";
             this.txt_report.Size = new System.Drawing.Size(925, 22);
             this.txt_report.TabIndex = 4;
@@ -115,12 +107,23 @@
             // btn_report
             // 
             this.btn_report.Location = new System.Drawing.Point(171, 394);
-            this.btn_report.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_report.Margin = new System.Windows.Forms.Padding(4);
             this.btn_report.Name = "btn_report";
             this.btn_report.Size = new System.Drawing.Size(220, 32);
             this.btn_report.TabIndex = 5;
             this.btn_report.Text = "Gerar Relatório";
             this.btn_report.UseVisualStyleBackColor = true;
+            // 
+            // dataGrid_contacts
+            // 
+            this.dataGrid_contacts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_contacts.Location = new System.Drawing.Point(170, 51);
+            this.dataGrid_contacts.Name = "dataGrid_contacts";
+            this.dataGrid_contacts.RowHeadersWidth = 51;
+            this.dataGrid_contacts.RowTemplate.Height = 24;
+            this.dataGrid_contacts.Size = new System.Drawing.Size(926, 276);
+            this.dataGrid_contacts.TabIndex = 6;
+            this.dataGrid_contacts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_contacts_CellClick);
             // 
             // ListContactsForm
             // 
@@ -129,9 +132,9 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1113, 555);
+            this.Controls.Add(this.dataGrid_contacts);
             this.Controls.Add(this.btn_report);
             this.Controls.Add(this.txt_report);
-            this.Controls.Add(this.list_contacts);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -139,6 +142,7 @@
             this.Text = "Contatos";
             this.Load += new System.EventHandler(this.ListContactsForm_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_contacts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,9 +154,9 @@
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_insert;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView list_contacts;
         private System.Windows.Forms.TextBox txt_report;
         private System.Windows.Forms.Button btn_report;
+        private System.Windows.Forms.DataGridView dataGrid_contacts;
     }
 }
 

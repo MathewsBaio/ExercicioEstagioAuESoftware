@@ -64,8 +64,33 @@ namespace ExercicioEstagio.Repositories
         {
             using (var connection = conn.GetConnection())
             {
+                await connection.OpenAsync();
+
                 List<Contact> contacts = new List<Contact>();
-               
+
+                using (var command = new OleDbCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "SELECT CodContato, Cidade, Data, Nome, Sexo FROM Contatos";
+
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            Contact c = new Contact
+                            {
+                                Id = reader.GetInt32(0),
+                                City = reader.GetString(1),
+                                RegisterDate = Convert.ToDateTime(reader["Data"]),
+                                Name = reader.GetString(3),
+                                Gender = reader.GetString(4) == "M" ? GenderEnum.Masculino : GenderEnum.Feminino
+                            };
+
+                            contacts.Add(c);
+                        }
+                    }
+                }
+
                 return contacts;
             }
         }
