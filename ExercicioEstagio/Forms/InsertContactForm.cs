@@ -43,8 +43,8 @@ namespace ExercicioEstagio.Forms
             {
                 await contactService.InsertContactAsync(contact);
                 MessageBox.Show("Contato inserido com sucesso!");
+                await parent.LoadContacts();
                 this.Close();
-                parent.LoadContacts();
                 this.Dispose(); 
             }
             catch (Exception ex)

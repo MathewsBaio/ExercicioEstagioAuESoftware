@@ -46,10 +46,28 @@ namespace ExercicioEstagio.Repositories
             }
         }
 
-        public async Task UpdateContactAsync(int id, Contact newContact)
+        public async Task UpdateContactAsync(Contact newContact)
         {
             using (var connection = conn.GetConnection())
             {
+                await connection.OpenAsync();
+
+                using (var command = new OleDbCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandText = "UPDATE Contatos SET Cidade = ?, Nome = ?, Sexo = ? WHERE CodContato = ?";
+
+                    command.Parameters.AddWithValue("Cidade", newContact.City);
+
+                    command.Parameters.AddWithValue("Nome", newContact.Name);
+
+                    string genderValue = newContact.Gender == GenderEnum.Masculino ? "M" : "F";
+                    command.Parameters.AddWithValue("Sexo", genderValue);
+
+                    command.Parameters.AddWithValue("CodContato", newContact.Id);
+
+                    await command.ExecuteNonQueryAsync();
+                }
             }
         }
 
@@ -57,6 +75,7 @@ namespace ExercicioEstagio.Repositories
         {
             using (var connection = conn.GetConnection())
             {
+
             }
         }
 

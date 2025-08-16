@@ -79,6 +79,7 @@
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(160, 22);
             this.txt_name.TabIndex = 3;
+            this.txt_name.TextChanged += new System.EventHandler(this.txt_name_TextChanged);
             // 
             // txt_city
             // 
@@ -87,6 +88,7 @@
             this.txt_city.Name = "txt_city";
             this.txt_city.Size = new System.Drawing.Size(160, 22);
             this.txt_city.TabIndex = 4;
+            this.txt_city.TextChanged += new System.EventHandler(this.txt_city_TextChanged);
             // 
             // cbox_gender
             // 
@@ -96,6 +98,7 @@
             this.cbox_gender.Name = "cbox_gender";
             this.cbox_gender.Size = new System.Drawing.Size(160, 24);
             this.cbox_gender.TabIndex = 5;
+            this.cbox_gender.SelectedIndexChanged += new System.EventHandler(this.cbox_gender_SelectedIndexChanged);
             // 
             // btn_confirm
             // 
@@ -106,6 +109,7 @@
             this.btn_confirm.TabIndex = 6;
             this.btn_confirm.Text = "Confirmar";
             this.btn_confirm.UseVisualStyleBackColor = true;
+            this.btn_confirm.Click += new System.EventHandler(this.btn_confirm_Click);
             // 
             // btn_cancel
             // 

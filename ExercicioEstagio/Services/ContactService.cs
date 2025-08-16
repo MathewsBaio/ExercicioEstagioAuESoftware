@@ -17,6 +17,11 @@ namespace ExercicioEstagio.Services
             await repo.InsertContactAsync(newContact);
         }
 
+        public async Task UpdateContactAsync(Contact newContact)
+        {
+            await repo.UpdateContactAsync(newContact);
+        }
+
         public async Task<List<Contact>> GetAllContactsAsync()
         {
             return await repo.GetAllContactsAsync();

@@ -40,10 +40,42 @@ namespace ExercicioEstagio.Forms
 
         }
 
+        private async void btn_confirm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                await contactService.UpdateContactAsync(contact);
+                MessageBox.Show("Contato Alterado com sucesso!");
+                await parent.LoadContacts();
+                this.Close();
+                this.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao inserir contato: " + ex.Message);
+            }
+
+        }
+
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
             this.Dispose();
+        }
+
+        private void txt_name_TextChanged(object sender, EventArgs e)
+        {
+            contact.Name = txt_name.Text;
+        }
+
+        private void cbox_gender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            contact.Gender = (GenderEnum)((ComboBox)sender).SelectedItem;
+        }
+
+        private void txt_city_TextChanged(object sender, EventArgs e)
+        {
+            contact.City = txt_city.Text;
         }
     }
 }
