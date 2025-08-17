@@ -28,6 +28,7 @@ namespace ExercicioEstagio.Forms
 
         private void InsertContactForm_Load(object sender, EventArgs e)
         {
+            cbox_gender.DropDownStyle = ComboBoxStyle.DropDownList;
             cbox_gender.DataSource = Enum.GetValues(typeof(GenderEnum));
         }
 
@@ -70,6 +71,22 @@ namespace ExercicioEstagio.Forms
         private void txt_city_TextChanged(object sender, EventArgs e)
         {
             contact.City = txt_city.Text;
+        }
+
+        private void txt_name_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != '-')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_city_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != '-')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ExercicioEstagio.Models;
+using ExercicioEstagio.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ExercicioEstagio.Models;
-using ExercicioEstagio.Services;
+
 
 namespace ExercicioEstagio.Forms
 {
@@ -30,7 +31,7 @@ namespace ExercicioEstagio.Forms
 
         private void EditContactForm_Load(object sender, EventArgs e)
         {
-
+            cbox_gender.DropDownStyle = ComboBoxStyle.DropDownList;
             cbox_gender.DataSource = Enum.GetValues(typeof(GenderEnum));
 
 
@@ -76,6 +77,22 @@ namespace ExercicioEstagio.Forms
         private void txt_city_TextChanged(object sender, EventArgs e)
         {
             contact.City = txt_city.Text;
+        }
+
+        private void txt_name_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != '-')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_city_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != '-')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

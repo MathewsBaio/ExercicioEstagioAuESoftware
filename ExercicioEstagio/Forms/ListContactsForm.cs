@@ -106,8 +106,16 @@ namespace ExercicioEstagio
 
         private void btn_edit_Click(object sender, EventArgs e)
         {
+            if (selectedContact == null)
+            {
+                MessageBox.Show("Selecione um contato da tabela para editar.");
+                return;
+            }
+
             EditContactForm modal = new EditContactForm(this, selectedContact, contactService);
             modal.ShowDialog();
+            selectedContact = null;
+            dataGrid_contacts.ClearSelection();
         }
 
         private async void btn_delete_Click(object sender, EventArgs e)
@@ -127,11 +135,19 @@ namespace ExercicioEstagio
                     await contactService.DeleteContactAsync(selectedContact.Id);
                     MessageBox.Show("Contato excluído com sucesso!");
                     await LoadContacts();
+                    selectedContact = null;
+                    dataGrid_contacts.ClearSelection();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Erro ao excluir contato: " + ex.Message);
+                    selectedContact = null;
+                    dataGrid_contacts.ClearSelection();
                 }
+            } else
+            {
+                selectedContact = null;
+                dataGrid_contacts.ClearSelection();
             }
         }
 

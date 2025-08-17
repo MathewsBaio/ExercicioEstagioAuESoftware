@@ -80,6 +80,7 @@
             this.txt_name.Size = new System.Drawing.Size(160, 22);
             this.txt_name.TabIndex = 3;
             this.txt_name.TextChanged += new System.EventHandler(this.txt_name_TextChanged);
+            this.txt_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_name_KeyPress);
             // 
             // txt_city
             // 
@@ -89,6 +90,7 @@
             this.txt_city.Size = new System.Drawing.Size(160, 22);
             this.txt_city.TabIndex = 4;
             this.txt_city.TextChanged += new System.EventHandler(this.txt_city_TextChanged);
+            this.txt_city.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_city_KeyPress);
             // 
             // cbox_gender
             // 
