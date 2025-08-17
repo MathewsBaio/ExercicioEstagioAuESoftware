@@ -162,23 +162,23 @@ namespace ExercicioEstagio
 
             txt_report.ScrollBars = ScrollBars.Vertical;
 
-            if (txt_report != null) // Verifica se a TextBox existe
+            if (txt_report != null)
             {
-                txt_report.BackColor = Color.FromArgb(60, 65, 87); // Fundo azul escuro
-                txt_report.ForeColor = Color.FromArgb(220, 220, 220); // Texto cinza claro
-                txt_report.BorderStyle = BorderStyle.FixedSingle; // Borda fina
-                txt_report.Font = new Font("Segoe UI", 10); // Fonte moderna
+                txt_report.BackColor = Color.FromArgb(60, 65, 87); 
+                txt_report.ForeColor = Color.FromArgb(220, 220, 220);
+                txt_report.BorderStyle = BorderStyle.FixedSingle;
+                txt_report.Font = new Font("Segoe UI", 10);
 
-                // Efeito de foco
+                
                 txt_report.Enter += (s, ev) =>
                 {
-                    txt_report.BorderStyle = BorderStyle.Fixed3D; // Borda mais visível ao focar
-                    txt_report.BackColor = Color.FromArgb(70, 75, 97); // Leve escurecimento
+                    txt_report.BorderStyle = BorderStyle.Fixed3D;
+                    txt_report.BackColor = Color.FromArgb(70, 75, 97); 
                 };
                 txt_report.Leave += (s, ev) =>
                 {
-                    txt_report.BorderStyle = BorderStyle.FixedSingle; // Volta à borda fina
-                    txt_report.BackColor = Color.FromArgb(60, 65, 87); // Volta ao fundo original
+                    txt_report.BorderStyle = BorderStyle.FixedSingle;
+                    txt_report.BackColor = Color.FromArgb(60, 65, 87);
                 };
             }
         }

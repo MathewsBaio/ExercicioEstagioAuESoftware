@@ -11,6 +11,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace ExercicioEstagio
 {
+    // Autor: Mathews Almeida Baio
     internal static class Program
     {
         /// <summary>
@@ -19,12 +20,7 @@ namespace ExercicioEstagio
         [STAThread]
         static void Main()
         {
-            //ReportService repo = new ReportService();
-
-            //string report =  repo.GetContactsReport().GetAwaiter().GetResult();
-
-            //Console.WriteLine(report);
-            //Console.ReadLine();
+           
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
