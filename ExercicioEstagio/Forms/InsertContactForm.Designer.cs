@@ -31,12 +31,13 @@
             this.txt_operationTitle = new System.Windows.Forms.Label();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_confirm = new System.Windows.Forms.Button();
-            this.cbox_gender = new System.Windows.Forms.ComboBox();
             this.txt_city = new System.Windows.Forms.TextBox();
             this.txt_name = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cb_feminino = new System.Windows.Forms.CheckBox();
+            this.cb_masculino = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txt_operationTitle
@@ -71,16 +72,6 @@
             this.btn_confirm.Text = "Confirmar";
             this.btn_confirm.UseVisualStyleBackColor = true;
             this.btn_confirm.Click += new System.EventHandler(this.btn_confirm_Click);
-            // 
-            // cbox_gender
-            // 
-            this.cbox_gender.FormattingEnabled = true;
-            this.cbox_gender.Location = new System.Drawing.Point(180, 264);
-            this.cbox_gender.Margin = new System.Windows.Forms.Padding(4);
-            this.cbox_gender.Name = "cbox_gender";
-            this.cbox_gender.Size = new System.Drawing.Size(160, 24);
-            this.cbox_gender.TabIndex = 14;
-            this.cbox_gender.SelectedIndexChanged += new System.EventHandler(this.cbox_gender_SelectedIndexChanged);
             // 
             // txt_city
             // 
@@ -135,16 +126,41 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Nome";
             // 
+            // cb_feminino
+            // 
+            this.cb_feminino.AutoSize = true;
+            this.cb_feminino.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_feminino.Location = new System.Drawing.Point(295, 264);
+            this.cb_feminino.Name = "cb_feminino";
+            this.cb_feminino.Size = new System.Drawing.Size(102, 27);
+            this.cb_feminino.TabIndex = 19;
+            this.cb_feminino.Text = "Feminino";
+            this.cb_feminino.UseVisualStyleBackColor = true;
+            this.cb_feminino.CheckedChanged += new System.EventHandler(this.cb_feminino_CheckedChanged);
+            // 
+            // cb_masculino
+            // 
+            this.cb_masculino.AutoSize = true;
+            this.cb_masculino.Font = new System.Drawing.Font("Nirmala UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cb_masculino.Location = new System.Drawing.Point(180, 264);
+            this.cb_masculino.Name = "cb_masculino";
+            this.cb_masculino.Size = new System.Drawing.Size(109, 27);
+            this.cb_masculino.TabIndex = 18;
+            this.cb_masculino.Text = "Masculino";
+            this.cb_masculino.UseVisualStyleBackColor = true;
+            this.cb_masculino.CheckedChanged += new System.EventHandler(this.cb_masculino_CheckedChanged);
+            // 
             // InsertContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(523, 554);
+            this.Controls.Add(this.cb_feminino);
+            this.Controls.Add(this.cb_masculino);
             this.Controls.Add(this.txt_operationTitle);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_confirm);
-            this.Controls.Add(this.cbox_gender);
             this.Controls.Add(this.txt_city);
             this.Controls.Add(this.txt_name);
             this.Controls.Add(this.label3);
@@ -163,11 +179,12 @@
         private System.Windows.Forms.Label txt_operationTitle;
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button btn_confirm;
-        private System.Windows.Forms.ComboBox cbox_gender;
         private System.Windows.Forms.TextBox txt_city;
         private System.Windows.Forms.TextBox txt_name;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox cb_feminino;
+        private System.Windows.Forms.CheckBox cb_masculino;
     }
 }

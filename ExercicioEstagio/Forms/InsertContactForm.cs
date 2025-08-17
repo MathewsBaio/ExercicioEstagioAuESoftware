@@ -17,6 +17,7 @@ namespace ExercicioEstagio.Forms
         private Contact contact;
         private ListContactsForm parent;
         private ContactService contactService;
+        private bool isLoading = true;
 
         public InsertContactForm(ListContactsForm parent, ContactService contactService)
         {
@@ -28,8 +29,13 @@ namespace ExercicioEstagio.Forms
 
         private void InsertContactForm_Load(object sender, EventArgs e)
         {
-            cbox_gender.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbox_gender.DataSource = Enum.GetValues(typeof(GenderEnum));
+            isLoading = true;
+
+            
+            cb_masculino.Checked = contact.Gender == GenderEnum.Masculino;
+            cb_feminino.Checked = contact.Gender == GenderEnum.Feminino;
+
+            isLoading = false;
         }
 
         private void btn_cancel_Click(object sender, EventArgs e)
@@ -86,6 +92,26 @@ namespace ExercicioEstagio.Forms
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ' && e.KeyChar != '-')
             {
                 e.Handled = true;
+            }
+        }
+
+        private void cb_masculino_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isLoading) return;
+            if (cb_masculino.Checked)
+            {
+                contact.Gender = GenderEnum.Masculino;
+                cb_feminino.Checked = false;
+            }
+        }
+
+        private void cb_feminino_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isLoading) return;
+            if (cb_feminino.Checked)
+            {
+                contact.Gender = GenderEnum.Feminino;
+                cb_masculino.Checked = false;
             }
         }
     }
