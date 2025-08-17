@@ -122,17 +122,5 @@ namespace ExercicioEstagio.Repositories
             }
         }
 
-        public async Task<List<Contact>> GetContactsFilterByNameAsync(int id)
-        {
-            using (var connection = conn.GetConnection())
-            {
-                List<Contact> contacts = new List<Contact>();
-               
-                return contacts;
-            }
-        }
-
-
-
     }
 }

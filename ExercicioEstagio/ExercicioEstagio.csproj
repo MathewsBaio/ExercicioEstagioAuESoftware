@@ -79,6 +79,9 @@
     <EmbeddedResource Include="Forms\InsertContactForm.resx">
       <DependentUpon>InsertContactForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ListContactsForm.pt-BR.resx">
+      <DependentUpon>ListContactsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ListContactsForm.resx">
       <DependentUpon>ListContactsForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -19,16 +19,16 @@ namespace ExercicioEstagio
         [STAThread]
         static void Main()
         {
-            ReportService repo = new ReportService();
+            //ReportService repo = new ReportService();
 
-            string report =  repo.GetContactsReport().GetAwaiter().GetResult();
+            //string report =  repo.GetContactsReport().GetAwaiter().GetResult();
 
-            Console.WriteLine(report);
-            Console.ReadLine();
+            //Console.WriteLine(report);
+            //Console.ReadLine();
 
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new ListContactsForm());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new ListContactsForm());
 
         }
 
