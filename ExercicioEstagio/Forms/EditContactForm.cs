@@ -32,7 +32,25 @@ namespace ExercicioEstagio.Forms
 
         private void EditContactForm_Load(object sender, EventArgs e)
         {
-          
+
+            btn_confirm.BackColor = Color.FromArgb(124, 58, 237);
+            btn_confirm.MouseEnter += (s, ev) => { btn_confirm.BackColor = Color.FromArgb(124, 58, 237); };
+            btn_confirm.MouseLeave += (s, ev) => { btn_confirm.BackColor = Color.FromArgb(124, 58, 237); };
+            btn_confirm.FlatStyle = FlatStyle.Flat;
+            btn_confirm.FlatAppearance.BorderSize = 0;
+            btn_confirm.ForeColor = Color.White;
+            btn_confirm.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btn_confirm.Cursor = Cursors.Hand;
+
+            btn_cancel.BackColor = Color.FromArgb(124, 58, 237);
+            btn_cancel.MouseEnter += (s, ev) => { btn_cancel.BackColor = Color.FromArgb(124, 58, 237); };
+            btn_cancel.MouseLeave += (s, ev) => { btn_cancel.BackColor = Color.FromArgb(124, 58, 237); };
+            btn_cancel.FlatStyle = FlatStyle.Flat;
+            btn_cancel.FlatAppearance.BorderSize = 0;
+            btn_cancel.ForeColor = Color.White;
+            btn_cancel.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btn_cancel.Cursor = Cursors.Hand;
+
             txt_name.Text = contact.Name;
             txt_city.Text = contact.City;
             

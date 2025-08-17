@@ -31,7 +31,24 @@ namespace ExercicioEstagio.Forms
         {
             isLoading = true;
 
-            
+            btn_confirm.BackColor = Color.FromArgb(124, 58, 237);
+            btn_confirm.MouseEnter += (s, ev) => { btn_confirm.BackColor = Color.FromArgb(124, 58, 237); };
+            btn_confirm.MouseLeave += (s, ev) => { btn_confirm.BackColor = Color.FromArgb(124, 58, 237); };
+            btn_confirm.FlatStyle = FlatStyle.Flat;
+            btn_confirm.FlatAppearance.BorderSize = 0;
+            btn_confirm.ForeColor = Color.White;
+            btn_confirm.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btn_confirm.Cursor = Cursors.Hand;
+
+            btn_cancel.BackColor = Color.FromArgb(124, 58, 237);
+            btn_cancel.MouseEnter += (s, ev) => { btn_cancel.BackColor = Color.FromArgb(124, 58, 237); };
+            btn_cancel.MouseLeave += (s, ev) => { btn_cancel.BackColor = Color.FromArgb(124, 58, 237); };
+            btn_cancel.FlatStyle = FlatStyle.Flat;
+            btn_cancel.FlatAppearance.BorderSize = 0;
+            btn_cancel.ForeColor = Color.White;
+            btn_cancel.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            btn_cancel.Cursor = Cursors.Hand;
+
             cb_masculino.Checked = contact.Gender == GenderEnum.Masculino;
             cb_feminino.Checked = contact.Gender == GenderEnum.Feminino;
 
