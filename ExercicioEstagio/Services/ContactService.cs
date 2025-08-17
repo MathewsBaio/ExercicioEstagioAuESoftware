@@ -2,8 +2,10 @@
 using ExercicioEstagio.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ExercicioEstagio.Services
@@ -13,7 +15,7 @@ namespace ExercicioEstagio.Services
         private ContactRepo repo = new ContactRepo();
 
         public async Task InsertContactAsync(Contact newContact)
-        { 
+        {
             await repo.InsertContactAsync(newContact);
         }
 
@@ -31,5 +33,9 @@ namespace ExercicioEstagio.Services
         {
             return await repo.GetAllContactsAsync();
         }
+
+        
+    
     }
 }
+

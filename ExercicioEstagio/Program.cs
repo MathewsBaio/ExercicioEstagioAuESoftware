@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using System.Data;
 using System.Data.OleDb;
 using ExercicioEstagio.Data;
+using ExercicioEstagio.Services;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ExercicioEstagio
 {
@@ -17,32 +19,19 @@ namespace ExercicioEstagio
         [STAThread]
         static void Main()
         {
-            //ConnectionService connectionService = new ConnectionService();
+            ReportService repo = new ReportService();
 
-            //using (var conn = connectionService.GetConnection())
-            //{
-            //    conn.Open();
+            string report =  repo.GetContactsReport().GetAwaiter().GetResult();
 
-            //    using (var command = new OleDbCommand("SELECT CodContato, Nome, Cidade, Sexo, [Data] FROM Contatos", conn))
-            //    using (var reader = command.ExecuteReader())
-            //    {
-            //        while (reader.Read())
-            //        {
-            //            Console.WriteLine(
-            //                $"Id: {reader["CodContato"]}, " +
-            //                $"Nome: {reader["Nome"]}, " +
-            //                $"Cidade: {reader["Cidade"]}, " +
-            //                $"Sexo: {reader["Sexo"]}, " +
-            //                $"Data: {reader["Data"]}"
-            //            );
-            //        }
-            //    }
-            //}
+            Console.WriteLine(report);
+            Console.ReadLine();
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ListContactsForm());
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new ListContactsForm());
 
         }
+
+ 
     }
 }
