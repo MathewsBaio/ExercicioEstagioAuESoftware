@@ -23,14 +23,14 @@ namespace ExercicioEstagio.Services
             int totalContacts = totalContactsMale + totalContactsFemale;
             List<string> cities = GetCitiesList(contacts);
 
-            // Definir larguras fixas para colunas
-            const int cityWidth = 20; // Largura para o nome da cidade
-            const int monthWidth = 10; // Largura para o nome do mês
-            const int numberWidth = 2; // Largura para números (Total, Homens, Mulheres)
+            
+            const int cityWidth = 20; 
+            const int monthWidth = 10; 
+            const int numberWidth = 2; 
 
-            // Cabeçalho do relatório
+            
             report.AppendLine(new string('=', 60));
-            report.AppendLine("Relatório de Contatos por Cidade e Mês".PadLeft(30 + 30 / 2)); // Centralizado
+            report.AppendLine("Relatório de Contatos por Cidade e Mês".PadLeft(30 + 30 / 2)); 
             report.AppendLine(new string('=', 60));
             report.AppendLine();
             report.AppendLine(new string('-', 60));
@@ -38,7 +38,7 @@ namespace ExercicioEstagio.Services
             report.AppendLine(new string('-', 60));
             report.AppendLine();
 
-            // Relatório por cidade
+            
             foreach (var city in cities)
             {
                 int totalContactsCity = 0;
